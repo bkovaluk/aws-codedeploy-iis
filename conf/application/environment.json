@@ -1,0 +1,27 @@
+[
+    {
+        "appName": "api",
+        "protocol": "http",
+        "port": 80,
+        "bindings": [
+            "api.example.com"
+        ],
+        "physicalPath": "C:\\inetpub\\wwwroot\\api",
+	    "identityType": "SpecificUser",
+        "userName": "domain\\svc_account",
+        "secretId": "/app/env/svc_account_pw"
+    },
+    {
+        "appName": "application",
+        "protocol": "http",
+        "port": 80,
+        "bindings": [
+            "application.example.com",
+            "application.example.net"
+        ],
+        "physicalPath": "C:\\inetpub\\wwwroot\\application",
+	    "identityType": "SpecificUser",
+        "userName": "domain\\svc_account",
+        "secretId": "/app/env/svc_account_pw"
+    }
+]

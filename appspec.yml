@@ -1,0 +1,24 @@
+version: 0.0
+os: windows
+files:
+  - source: .\src
+    destination: C:\inetpub\wwwroot
+file_exists_behavior: OVERWRITE
+
+
+hooks:
+  ApplicationStop:
+    - location: .\scripts\stop_services.ps1
+      timeout: 60
+  BeforeInstall:
+    - location: .\scripts\cleanup.ps1
+      timeout: 180
+  AfterInstall:
+    - location: .\scripts\create_sites.ps1
+      timeout: 180
+  ApplicationStart:
+    - location: .\scripts\start_services.ps1
+      timeout: 60
+  ValidateService:
+    - location: .\scripts\validate_service.ps1
+      timeout: 15
